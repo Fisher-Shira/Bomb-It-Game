@@ -1,0 +1,11 @@
+# Byte-compiled
+__pycache__/
+
+# Distribution
+.dist/
+
+# PyCharm
+.idea/
+
+# Virtual Environment
+.venv/
