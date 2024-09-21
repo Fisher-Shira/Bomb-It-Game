@@ -14,7 +14,7 @@ This is a fun and interactive game where players place bombs and aim to destroy 
 
 ## How to Play
 1. Run the program.
-2. Choose 2
+2. Choose 2/4 Players (according to the open terminals number).
 3. Control the player movement to a clear block using the **left**, **right**, **up** and **down** arrow keys.
 4. Press the **space** bar to drop a bomb (maximum 2 at the same time).
 5. Avoid losing all your lives by staying clear of bombs and explosions (+ shape explosion).
@@ -39,19 +39,15 @@ This is a fun and interactive game where players place bombs and aim to destroy 
     ```bash
     pip install -r requirements.txt
     ```
-4. Open 3 terminals and execute the following commands in each:
-    ### Terminal 1
-        ```bash
-        python .\src\server.py
-        ```
-    ### Terminal 2
-        ```bash
-        python .\src\client.py
-        ```
-    ### Terminal 3
-        ```bash
-        python .\src\client.py
-        ```
+4. Open 3 terminals for 2 players / 5 terminals for 4 players and execute the following commands in each:
+    **Terminal 1**
+    ```bash
+    python .\src\server.py
+    ```
+    **Terminal 2 - 5**
+    ```bash
+    python .\src\client.py
+    ```
 
 ## Project Structure
 - **`src/`**: Contains the pythn code for all game components, including the server, client, and game logic.
