@@ -51,5 +51,5 @@ This is a fun and interactive game where players place bombs and aim to destroy 
 
 ## Project Structure
 - **`src/`**: Contains the pythn code for all game components, including the server, client, and game logic.
-- **`Images/`**: Folder inside src folder that cintain game images.
+- **`assets/`**: Contains game images.
 - **requirements.txt**: Requirements file

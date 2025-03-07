@@ -26,7 +26,7 @@ class Screens:
         players2_button = draw.rect(self.screen, WHITE, PLAYERS2_POS)
         players4_button = draw.rect(self.screen, WHITE, PLAYERS4_POS)
         ins_button = draw.rect(self.screen, WHITE, INS_POS)
-        img = image.load('src/Images/Main_Screens/open.jpg').convert()
+        img = image.load('assets/Main_Screens/open.jpg').convert()
         self.screen.blit(img, (0, 0))
         display.flip()
         return players2_button, players4_button, ins_button
@@ -35,17 +35,17 @@ class Screens:
         # show the instruction screen
         # return the back button
         back_button = draw.rect(self.screen, WHITE, BACK_INS_POS)
-        img = image.load('src/Images/Main_Screens/instructions.jpg').convert()
+        img = image.load('assets/Main_Screens/instructions.jpg').convert()
         self.screen.blit(img, (0, 0))
         display.flip()
         return back_button
 
     def show_players(self, x_arrow, taken_colors):
         # show the players screen
-        players_img = image.load('src/Images/Select_Players/players.jpg'
+        players_img = image.load('assets/Select_Players/players.jpg'
                                  ).convert()
         self.screen.blit(players_img, (0, 0))
-        arrow_pic = image.load('src/Images/Select_Players/arrow.png').convert()
+        arrow_pic = image.load('assets/Select_Players/arrow.png').convert()
         arrow_pic.set_colorkey(WHITE)
         self.screen.blit(arrow_pic, (x_arrow, 50))
         self.show_taken(taken_colors)
@@ -53,14 +53,14 @@ class Screens:
 
     def show_your_player(self, x_pic):
         # show "you" next to your selected player
-        you_img = image.load('src/Images/Select_Players/you.png').convert()
+        you_img = image.load('assets/Select_Players/you.png').convert()
         you_img.set_colorkey(WHITE)
         self.screen.blit(you_img, (x_pic, 262))
         display.flip()
 
     def show_taken(self, color_list):
         # show "taken" next to the colors that has been taken
-        taken_img = image.load('src/Images/Select_Players/taken.png').convert()
+        taken_img = image.load('assets/Select_Players/taken.png').convert()
         taken_img.set_colorkey(WHITE)
         for color in color_list:
             self.screen.blit(taken_img, (Color.select_pos[color], 262))
@@ -69,7 +69,7 @@ class Screens:
     def show_game(self, current_player, players_colors):
         # show the start game screen
         # return the players_position list
-        game_img = image.load('src/Images/Lives/hearts.jpg').convert()
+        game_img = image.load('assets/Lives/hearts.jpg').convert()
         self.screen.blit(game_img, (0, 0))
         self.show_you(current_player)
         players_position = {}
@@ -82,7 +82,7 @@ class Screens:
 
     def show_you(self, player):
         # show "you" next to your player hearts_picture
-        you_img = image.load('src/Images/Lives/you.png').convert()
+        you_img = image.load('assets/Lives/you.png').convert()
         you_img.set_colorkey(WHITE)
         color = player.color
         self.screen.blit(you_img, (0, Color.select_pos[color] - 134))
@@ -107,11 +107,11 @@ class Screens:
         # present the new picture of the board
         # board, big, bombs, explosions, players
         clear_squares = Squares.clear_squares
-        game_img = image.load('src/Images/Board/game.jpg').convert()
+        game_img = image.load('assets/Board/game.jpg').convert()
         self.screen.blit(game_img, (200, 0))
-        middle_img = image.load('src/Images/Board/statue.png').convert()
+        middle_img = image.load('assets/Board/statue.png').convert()
         middle_img.set_colorkey(WHITE)
-        clear_img = image.load('src/Images/Board/clear.jpg').convert()
+        clear_img = image.load('assets/Board/clear.jpg').convert()
         if len(clear_squares) > 62:  # present the new clean squares
             for i in range(62, len(clear_squares)):
                 self.screen.blit(clear_img, self.ij_to_xy('clear',
@@ -125,19 +125,19 @@ class Screens:
     def present_hearts(self, color, hearts):
         # present hearts/ place/ exit
         if hearts == 200:
-            hearts_img = image.load('src/Images/Lives/quit.jpg').convert()
+            hearts_img = image.load('assets/Lives/quit.jpg').convert()
         elif hearts == 1 or hearts == 2 or hearts == 3:
-            hearts_img = image.load(('src/Images/Lives/' + str(hearts)
+            hearts_img = image.load(('assets/Lives/' + str(hearts)
                                      + '_hearts.jpg')).convert()
         else:
-            hearts_img = image.load(('src/Images/Results/' + str(hearts-100)
+            hearts_img = image.load(('assets/Results/' + str(hearts-100)
                                      + '_place.jpg')).convert()
         self.screen.blit(hearts_img, (42, Color.y_hearts[color]))
         display.flip()
 
     def present_players(self, players_position):
         for player in players_position.keys():
-            color_img = ('src/Images/Players/' + player + '_' +
+            color_img = ('assets/Players/' + player + '_' +
                          players_position[player][1] + '.png')
             player_img = image.load(color_img).convert()
             player_img.set_colorkey(WHITE)
@@ -146,8 +146,8 @@ class Screens:
 
     def present_explosions(self, explosions_position):
         block_squares = Squares.block_squares
-        brick_img = image.load('src/Images/Board/brick.jpg').convert()
-        explosion_img = image.load('src/Images/Board/explosion.png').convert()
+        brick_img = image.load('assets/Board/brick.jpg').convert()
+        explosion_img = image.load('assets/Board/explosion.png').convert()
         explosion_img.set_colorkey(WHITE)
         for time in explosions_position:  # present the explosions
             explosion_ij = explosions_position[time][0]
@@ -171,7 +171,7 @@ class Screens:
                                                            explosion_ij[1]+1)))
 
     def present_bombs(self, bombs_position):
-        bomb_img = image.load('src/Images/Board/bomb.png').convert()
+        bomb_img = image.load('assets/Board/bomb.png').convert()
         bomb_img.set_colorkey(WHITE)
         for time in bombs_position:
             self.screen.blit(bomb_img, self.ij_to_xy(
@@ -181,9 +181,9 @@ class Screens:
         # show the end screen
         # return the back button
         back_button = draw.rect(self.screen, (0, 0, 0), BACK_END_POS)
-        img = image.load('src/Images/Results/end.jpg').convert()
+        img = image.load('assets/Results/end.jpg').convert()
         self.screen.blit(img, (0, 0))
-        img = image.load(('src/Images/Results/end_' + str(place)
+        img = image.load(('assets/Results/end_' + str(place)
                           + ".png")).convert()
         img.set_colorkey(WHITE)
         self.screen.blit(img, (119, 30))
