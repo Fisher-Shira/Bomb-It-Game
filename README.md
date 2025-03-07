@@ -72,3 +72,5 @@ Players place bombs strategically to destroy obstacles and opponents, with the l
 - **`src/`**: Contains the Python code for all game components, including the server, client, and game logic.
 - **`assets/`**: Stores game images and graphical assets.
 - **`requirements.txt`**: Lists the required dependencies for the game.
+- **`Makefile`**: A file used to automate the build and setup process of the project (e.g., creating the virtual environment, installing dependencies, and running the server and client).
+
