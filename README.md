@@ -64,7 +64,7 @@ Players place bombs strategically to destroy obstacles and opponents, with the l
     ```bash
     python src/client.py
     ```
-6. To clean the environment (remove virtualenv):
+5. To clean the environment (remove virtualenv):
     ```bash
     make clean
 
